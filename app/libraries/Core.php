@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Core {
 
@@ -6,8 +6,8 @@ class Core {
 	protected $currentMethod = 'index';
 	protected $params = [];
 
-	function __construct() {
-		$url = $this->getUrl();
+	function __construct() {				
+		$url = $this->getUrl();		
 
 		if (isset($url[0]) and file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
 			$this->currentController = ucwords($url[0]);
@@ -16,7 +16,7 @@ class Core {
 
 		require_once '../app/controllers/' . $this->currentController . '.php';
 
-		$this->currentController = new $this->currentController;
+		$this->currentController = new $this->currentController;			
 
 		if (isset($url[1])) {
 			if (method_exists($this->currentController, $url[1])) {
