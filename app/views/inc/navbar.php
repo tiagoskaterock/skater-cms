@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-  <div class="container-fluid">
+  <div class="container">
 
     <a class="navbar-brand" href="<?php echo URLROOT ?>">
     	<?php echo SITENAME ?>

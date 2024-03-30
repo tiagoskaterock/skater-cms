@@ -21,10 +21,30 @@ class Users extends Controller {
 				'name_error' 			 			 => '',
 				'email_error'			 			 => '',
 				'password_error'	 			 => '',
-				'conrifm_password_error' => '',
+				'confirm_password_error' => '',
 			];
 
 			$this->view('users/register', $data);
+		}
+
+
+	}
+
+	function login() {
+		// check for POST
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			// Process form
+		}
+		else {
+			// Init data
+			$data = [
+				'email' 					 			 => '',
+				'password' 				 			 => '',
+				'email_error'			 			 => '',
+				'password_error'	 			 => '',
+			];
+
+			$this->view('users/login', $data);
 		}
 
 
