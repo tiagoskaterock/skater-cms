@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php' ?>
 
-<div class="row">
+<div class="row" style="margin: 80px 0;">
 	<div class="col-md-6 mx-auto">
 		<div class="card card-body bg-light">
 			<h2>Login</h2>
