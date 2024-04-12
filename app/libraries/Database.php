@@ -41,7 +41,7 @@ class Database {
 					$type = PDO::PARAM_INT;
 					break;
 
-				case is_bol($value):
+				case is_bool($value):
 					$type = PDO::PARAM_BOOL;
 					break;
 
@@ -54,7 +54,7 @@ class Database {
 			}
 		}
 
-		$this->stmt = PDO::bindValue($param, $value, $type);
+		$this->stmt->bindValue($param, $value, $type);
 	}
 
 	// Execute the prepared statement
