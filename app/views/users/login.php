@@ -3,6 +3,9 @@
 <div class="row" style="margin: 80px 0;">
 	<div class="col-md-6 mx-auto">
 		<div class="card card-body bg-light">
+
+			<?php flash('register_success') ?>
+
 			<h2>Login</h2>
 
 			<p>Please fill in your credentials to log in</p>
