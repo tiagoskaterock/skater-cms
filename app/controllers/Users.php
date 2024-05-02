@@ -73,8 +73,7 @@ class Users extends Controller {
 					redirect('users/login');
 				} else {
 					die('Something went wrong...');
-				}
-				print_r($data);
+				}				
 				die;
 			}
 			else {
@@ -127,16 +126,31 @@ class Users extends Controller {
 				$data['password_error'] = 'Please enter password';		
 			}
 
+			// Check for user/email
+			if ($this->userModel->findUserByEmail($data['email'])) {
+				// user found
+			} else {
+				// User not found
+				$data['email_error'] = 'User not found.';
+			}
+
 			// Make sure errors are empty
 			if (empty($data['email_error']) && empty($data['password_error'])) {
 				// Validated
-				die('SUCESS');
+				// Check and set logged in user
+				$loggedInUser = $this->userModel->login($data['email'], $data['password']);
+				if ($loggedInUser) {
+					die('SUCCESS');
+
+				} else {
+					$data['password_error'] = 'Password incorrect.';
+					$this->view('users/login', $data);
+				}
 			}
 			else {
 				// Load view with errors
 				$this->view('users/login', $data);				
 			}
-
 
 		}
 		else {
@@ -150,7 +164,6 @@ class Users extends Controller {
 
 			$this->view('users/login', $data);
 		}
-
 
 	}
 
