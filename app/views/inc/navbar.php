@@ -25,21 +25,31 @@
           <a class="nav-link" href="<?php echo URLROOT ?>/pages/about">
           	About
           </a>
-        </li>
+        </li>        
 
-      	<!-- home -->
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="<?php echo URLROOT ?>/users/register">
-          	Register
-          </a>
-        </li>
+        <?php if ( ! isset($_SESSION['user_id'])): ?>
+        	<!-- home -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="<?php echo URLROOT ?>/users/register">
+            	Register
+            </a>
+          </li>       
 
-        <!-- about -->
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT ?>/users/login">
-          	Login
-          </a>
-        </li>
+          <!-- login -->
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo URLROOT ?>/users/login">
+            	Login
+            </a>
+          </li>          
+          
+        <?php else: ?>
+          <!-- logout -->
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo URLROOT ?>/users/logout">
+              Logout
+            </a>
+          </li> 
+        <?php endif ?>
 
       </ul>
       <!-- end right -->
