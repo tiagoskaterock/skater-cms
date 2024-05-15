@@ -33,5 +33,8 @@ function flash(string $name = "", string $message = "", string $class = "alert a
 		}
 
 	}
+}
 
+function isLoggedIn() : bool {
+	return isset($_SESSION['user_id']);
 }

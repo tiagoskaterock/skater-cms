@@ -16,8 +16,17 @@ Skater is a superlight weight PHP Framework for people who are starting to learn
 ## Installation
 
 - Download Skater
+
 - Make a copy of the file in app/config/config_examples.php and call it just 'config.php'
+
 - In config.php update your credentials for the database
+
+- Update ALL other variables there
+
 - Open it in your host using the correct url, usually you will do this in localhost/skater for development, before upload to production
+
+- Run skater_cms.sql for database
+
 - It's just PHP, nothing else complicated. 
+
 - You can install any libraries or dependencies you want, the code is totally free.
