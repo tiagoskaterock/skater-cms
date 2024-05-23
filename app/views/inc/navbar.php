@@ -43,6 +43,13 @@
           </li>          
           
         <?php else: ?>
+          <!-- posts -->
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo URLROOT ?>/posts/">
+              Posts
+            </a>
+          </li>  
+
           <!-- logout -->
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT ?>/users/logout">
