@@ -6,6 +6,10 @@ class Pages extends Controller {
 	}
 
 	function index() {	
+		if (isLoggedIn()) {
+			redirect('posts');
+		}
+		
 		$data = [
 			'title' => 'Welcome to PHP Skater CMS!',
 			'desc' => ' enim ad minim veniam,

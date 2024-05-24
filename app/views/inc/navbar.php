@@ -20,12 +20,14 @@
           </a>
         </li>
 
-        <!-- about -->
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT ?>/pages/about">
-          	About
-          </a>
-        </li>        
+        <?php if ( ! isset($_SESSION['user_id'])): ?>
+          <!-- about -->
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo URLROOT ?>/pages/about">
+            	About
+            </a>
+          </li>
+        <?php endif ?>
 
         <?php if ( ! isset($_SESSION['user_id'])): ?>
         	<!-- home -->
@@ -43,13 +45,6 @@
           </li>          
           
         <?php else: ?>
-          <!-- posts -->
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT ?>/posts/">
-              Posts
-            </a>
-          </li>  
-
           <!-- logout -->
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT ?>/users/logout">
