@@ -15,7 +15,7 @@
 			<h2>Create a new Post</h2>
 
 			<form 
-				action="<?php echo URLROOT ?>/users/register" 
+				action="<?php echo URLROOT ?>/posts/add" 
 				method="POST">
 
 				<!-- title -->
@@ -39,8 +39,8 @@
 						name="content" 
 						id="content" 
 						class="form-control form-control-lg 
-						<?php echo !empty($data['content_error']) ? 'is-invalid' : null ?>"
-						value="<?php echo $data['content'] ?>"></textarea>
+						<?php echo ! empty($data['content_error']) ? 'is-invalid' : null ?>"
+						><?php echo $data['content'] ?></textarea>
 						<span class="invalid-feedback"><?php echo $data['content_error'] ?></span>
 				</div>
 
