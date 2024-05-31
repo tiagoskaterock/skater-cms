@@ -71,4 +71,15 @@ class Posts extends Controller {
 
 	}
 
+	function show($id) {
+		// get post
+		$post = $this->postModel->getPost($id);
+
+		$data = [
+			'post' => $post,
+		];
+
+		$this->view('posts/show', $data);
+	}
+
 }

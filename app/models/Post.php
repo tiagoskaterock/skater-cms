@@ -16,6 +16,20 @@ class Post {
 		return $results;
 	}
 
+	function getPost($id) {
+		$this->db->query('SELECT posts.title as title, posts.content as content, posts.created_at as created_at, users.name as writter FROM posts INNER JOIN users ON posts.id = :id AND posts.user_id = users.id;');
+		$this->db->bind(':id', $id);
+
+		$row = $this->db->single();
+
+		// Check row
+		if ($this->db->rowCount() > 0) {
+			return $row;
+		}
+		return false;
+
+	}
+
 	function addPost($data) {
 		$this->db->query('INSERT INTO posts (title, content, user_id) VALUES (:title, :content, :user_id)');
 
