@@ -141,4 +141,17 @@ class Posts extends Controller {
 		$this->view('posts/show', $data);
 	}
 
+	function delete($id) {
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			if ($this->postModel->delete($id)) {
+				flash('post_message', 'Post removed');
+			} else {
+				die('Something went wrong');
+			}
+
+		}
+		redirect('posts');
+
+	}
+
 }

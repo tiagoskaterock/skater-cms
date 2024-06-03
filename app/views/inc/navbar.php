@@ -13,6 +13,13 @@
 
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
 
+        <!-- username -->
+        <li class="nav-item">
+          <span class="nav-link">
+            Hello, <?= $_SESSION['user_name'] ?>!
+          </span>
+        </li>
+
       	<!-- home -->
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="<?php echo URLROOT ?>">
@@ -51,7 +58,7 @@
               Logout
             </a>
           </li> 
-        <?php endif ?>
+        <?php endif ?>        
 
       </ul>
       <!-- end right -->

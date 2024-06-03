@@ -21,16 +21,32 @@
 
 				<p><?= $post->content ?></p>
 
-				Written by <?= $post->writter ?>, <?= $post->created_at ?>
+				Written by <?= $post->writter ?>, <?= $post->created_at ?>				
 
-				<p class="mt-4">
-					<a 
-						class="btn btn-primary" 
-						href="<?php echo URLROOT ?>/posts/edit/<?= $post->post_id ?>">
-						<i class="fas fa-edit"></i>
-						Edit Post
-					</a>					
-				</p>
+				<?php if ($_SESSION['user_id'] == $post->user_id): ?>
+					<p class="mt-4">
+						<a 
+							class="btn btn-primary" 
+							href="<?php echo URLROOT ?>/posts/edit/<?= $post->post_id ?>">
+							<i class="fas fa-edit"></i>
+							Edit
+						</a>					
+
+						<form 
+							action="<?php echo URLROOT ?>/posts/delete/<?= $post->post_id ?>"
+							method="POST">
+							
+							<button	
+								onclick="return confirm('Deseja mesmo excluir?');"
+								type="submit"
+								class="btn btn-danger">
+								<i class="fas fa-trash"></i>
+								Delete
+							</button>
+
+						</form>
+					</p>					
+				<?php endif ?>
 
 			</div>
 
