@@ -77,6 +77,7 @@ class Posts extends Controller {
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 			$data = [
+				'id'			=> $id,
 				'title'	        => trim($_POST['title']),
 				'content'       => trim($_POST['content']),
 				'user_id'       => $_SESSION['user_id'],
@@ -95,8 +96,8 @@ class Posts extends Controller {
 			// make sure no errors
 			if ( empty($data['title_error']) and empty($data['content_error'])) {
 				// validate
-				if ($this->postModel->addPost($data)) {
-					flash('post_message', 'Post added');
+				if ($this->postModel->updatePost($data)) {
+					flash('post_message', 'Post Updted');
 					redirect('posts');
 				} else {
 					die('Something went wrong');
@@ -111,7 +112,7 @@ class Posts extends Controller {
 
 		} else {
 			// get post
-			$this->postModel->getPost($id);
+			$post = $this->postModel->getPost($id);			
 
 			// check for owner
 			if ($post->user_id != $_SESSION['user_id']) {
@@ -119,7 +120,7 @@ class Posts extends Controller {
 			}
 
 			$data = [
-				'id'		=> $id,
+				'id'		=> $post->post_id,
 				'title' 	=> $post->title,
 				'content' 	=> $post->content,
 			];

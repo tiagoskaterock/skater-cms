@@ -17,7 +17,15 @@ class Post {
 	}
 
 	function getPost($id) {
-		$this->db->query('SELECT posts.title as title, posts.content as content, posts.created_at as created_at, users.name as writter FROM posts INNER JOIN users ON posts.id = :id AND posts.user_id = users.id;');
+		$this->db->query('SELECT posts.id as post_id, 
+			posts.title as title, 
+			posts.content as content, 
+			posts.created_at as created_at, 
+			users.name as writter,
+			users.id as user_id
+			FROM posts INNER JOIN users 
+			ON posts.id = :id 
+			AND posts.user_id = users.id;');
 		$this->db->bind(':id', $id);
 
 		$row = $this->db->single();
@@ -45,4 +53,27 @@ class Post {
 			return false;
 		}
 	}
+
+	function updatePost($data) {
+	    $title = $data['title'];
+	    $content = $data['content'];
+	    
+	    $this->db->query('UPDATE posts SET 
+	        title = :title, 
+	        content = :content
+	        WHERE id = :post_id');
+
+	    // Bind values
+	    $this->db->bind(':title', $title);
+	    $this->db->bind(':content', $content);
+	    $this->db->bind(':post_id', $data['id']);
+
+	    // Execute
+	    if ($this->db->execute()) {
+	        return true;
+	    } else {
+	        return false;
+	    }
+	}
+
 }

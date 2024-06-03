@@ -4,18 +4,18 @@
 	<div class="col-md-6 mx-auto">
 
 		<a 
+			href="<?= URLROOT ?>/posts/show/<?= $data['id'] ?>"
 			title="Back"
-			href="<?php echo URLROOT ?>/posts" 
 			class="btn btn-primary btn-sm mb-3">
 			<i class="fas fa-backward"></i>
 			Back
 		</a>
 
 		<div class="card card-body bg-light">
-			<h2>Create a new Post</h2>
+			<h2>Edit Post</h2>
 
 			<form 
-				action="<?php echo URLROOT ?>/posts/add" 
+				action="<?= URLROOT ?>/posts/edit/<?= $data['id'] ?>" 
 				method="POST">
 
 				<!-- title -->
@@ -25,23 +25,23 @@
 						type="text" 
 						name="title" 
 						id="title" 
-						class="form-control form-control-lg <?php echo !empty($data['title_error']) ? 'is-invalid' : null ?>"
-						value="<?php echo $data['title'] ?>">
-						<span class="invalid-feedback"><?php echo $data['title_error'] ?></span>
+						class="form-control form-control-lg <?= !empty($data['title_error']) ? 'is-invalid' : null ?>"
+						value="<?= $data['title'] ?>">
+						<span class="invalid-feedback"><?= $data['title_error'] ?></span>
 				</div>
 
 				<!-- content -->
 				<div class="form-group mb-3">
-					<label for="content">content: <sup>*</sup></label>
+					<label for="content">Content: <sup>*</sup></label>
 
 					<textarea
 						type="content" 
 						name="content" 
 						id="content" 
 						class="form-control form-control-lg 
-						<?php echo ! empty($data['content_error']) ? 'is-invalid' : null ?>"
-						><?php echo $data['content'] ?></textarea>
-						<span class="invalid-feedback"><?php echo $data['content_error'] ?></span>
+						<?= ! empty($data['content_error']) ? 'is-invalid' : null ?>"
+						><?= $data['content'] ?></textarea>
+						<span class="invalid-feedback"><?= $data['content_error'] ?></span>
 				</div>
 
 				<!-- submit -->

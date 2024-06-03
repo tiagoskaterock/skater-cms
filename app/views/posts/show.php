@@ -23,6 +23,15 @@
 
 				Written by <?= $post->writter ?>, <?= $post->created_at ?>
 
+				<p class="mt-4">
+					<a 
+						class="btn btn-primary" 
+						href="<?php echo URLROOT ?>/posts/edit/<?= $post->post_id ?>">
+						<i class="fas fa-edit"></i>
+						Edit Post
+					</a>					
+				</p>
+
 			</div>
 
 		</div>
